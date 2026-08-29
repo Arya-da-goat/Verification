@@ -90,31 +90,30 @@
     </div>
 
     <script>
+    const icon = document.getElementById("icon");
+    const title = document.getElementById("title");
+    const message = document.getElementById("message");
+
+    if (localStorage.getItem("verified") === "true") {
+
+        icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        title.textContent = "Already Verified";
+        message.innerHTML =
+            "This device has already been verified.<br>You may now close this tab.";
+
+    } else {
+
         const delay = Math.floor(Math.random() * 2001) + 3000;
 
         setTimeout(() => {
-            document.getElementById("icon").textContent = "✓";
-            document.getElementById("title").textContent = "Verified";
-            document.getElementById("message").innerHTML =
+            localStorage.setItem("verified", "true");
+
+            icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            title.textContent = "Verified";
+            message.innerHTML =
                 "You have been successfully verified.<br>You may now close this tab.";
         }, delay);
-		if (localStorage.getItem("verified") === "true") {
-    icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-    title.textContent = "Already Verified";
-    message.innerHTML =
-        "This device has already been verified.<br>You may now close this tab.";
-} else {
-    const delay = Math.floor(Math.random() * 2001) + 3000;
-
-    setTimeout(() => {
-        localStorage.setItem("verified", "true");
-
-        icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-        title.textContent = "Verified";
-        message.innerHTML =
-            "You have been successfully verified.<br>You may now close this tab.";
-    }, delay);
-		}
-    </script>
+    }
+	</script>
 </body>
 </html>
