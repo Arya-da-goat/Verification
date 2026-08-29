@@ -75,15 +75,24 @@
 		}, "json");
 	</script>
 </head>
-<body>
-	<center>
-		<h1>Verified</h1>
-		<input type="color"></input>
-		<p>Actual time: <span id="here"></span></p>
-	</center>
-	<script>
-		const date = new Date();
-		document.getElementById('here').innerHTML = date;
-	</script>
+<body style="margin:0; min-height:100vh; display:flex; justify-content:center; align-items:center; font-family:Arial,sans-serif; background:linear-gradient(135deg,#141e30,#243b55); color:white;">
+
+    <div style="width:90%; max-width:450px; padding:40px 30px; text-align:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:20px; backdrop-filter:blur(12px); box-shadow:0 20px 50px rgba(0,0,0,0.35);">
+
+        <div style="width:75px; height:75px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:#22c55e; color:white; font-size:42px; box-shadow:0 0 30px rgba(34,197,94,0.5);">
+            ✓
+        </div>
+
+        <h1 style="margin:0 0 12px; font-size:32px;">
+            Verified
+        </h1>
+
+        <p style="margin:0; color:#d1d5db; font-size:16px; line-height:1.6;">
+            You have been successfully verified.<br>
+            You may now close this tab.
+        </p>
+
+    </div>
+
 </body>
 </html>
