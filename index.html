@@ -90,7 +90,24 @@
     </div>
 
     <script>
-        window.location.href = "/login";
+        const icon = document.getElementById("icon");
+        const title = document.getElementById("title");
+        const message = document.getElementById("message");
+
+        if (localStorage.getItem("verified") === "true") {
+
+            icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            title.textContent = "Already Verified";
+            message.innerHTML =
+                "This device has already been verified.<br>You may now close this tab.";
+
+        } else {
+
+            const params = window.location.search;
+
+            window.location.href =
+                "https://YOUR-ORIHOST-BACKEND-URL/login" + params;
+        }
     </script>
 </body>
 </html>
