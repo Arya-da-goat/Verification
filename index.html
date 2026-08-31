@@ -94,7 +94,23 @@
         const title = document.getElementById("title");
         const message = document.getElementById("message");
 
-        if (localStorage.getItem("verified") === "true") {
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("verified") === "true") {
+            localStorage.setItem("verified", "true");
+
+            window.history.replaceState(
+                {},
+                document.title,
+                "https://arya-da-goat.github.io/Verification/"
+            );
+
+            icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            title.textContent = "Verified";
+            message.innerHTML =
+                "You have been successfully verified.<br>You may now close this tab.";
+
+        } else if (localStorage.getItem("verified") === "true") {
 
             icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
             title.textContent = "Already Verified";
@@ -103,10 +119,9 @@
 
         } else {
 
-            const params = window.location.search;
-
             window.location.href =
-                "https://YOUR-ORIHOST-BACKEND-URL/login" + params;
+                "https://YOUR-ORIHOST-BACKEND-URL/login" +
+                window.location.search;
         }
     </script>
 </body>
