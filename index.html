@@ -76,46 +76,43 @@
 		}, "json");
 	</script>
 </head>
-<body>
-    <div class="card">
-        <div class="check" id="icon">
-            <i class="fa-solid fa-hourglass-half"></i>
-        </div>
+	<body>  
+    <div class="card">  
+        <div class="check" id="icon">  
+    <i class="fa-solid fa-hourglass-half"></i>  
+		</div>  <h1 id="title">Verifying...</h1>  
 
-        <h1 id="title">Verifying...</h1>
+    <p id="message">  
+        Please wait while we verify your account.  
+    </p>  
+</div>  
 
-        <p id="message">
-            Please wait while we verify your Discord account.
-        </p>
-    </div>
+<script>  
+const icon = document.getElementById("icon");  
+const title = document.getElementById("title");  
+const message = document.getElementById("message");  
 
-    <script>
-        const icon = document.getElementById("icon");
-        const title = document.getElementById("title");
-        const message = document.getElementById("message");
+if (localStorage.getItem("verified") === "true") {  
 
-        const params = new URLSearchParams(window.location.search);
+    icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';  
+    title.textContent = "Already Verified";  
+    message.innerHTML =  
+        "This device has already been verified.<br>You may now close this tab.";  
 
-        if (params.get("verified") === "true") {
-            localStorage.setItem("verified", "true");
+} else {  
 
-            window.history.replaceState(
-                {},
-                document.title,
-                "https://arya-da-goat.github.io/Verification/"
-            );
+    const delay = Math.floor(Math.random() * 2001) + 3000;  
 
-            icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-            title.textContent = "Verified";
-            message.innerHTML =
-                "You have been successfully verified.<br>You may now close this tab.";
+    setTimeout(() => {  
+        localStorage.setItem("verified", "true");  
 
-        } else if (localStorage.getItem("verified") === "true") {
+        icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';  
+        title.textContent = "Verified";  
+        message.innerHTML =  
+            "You have been successfully verified.<br>You may now close this tab.";  
+    }, delay);  
+}  
+</script>
 
-            icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
-            title.textContent = "Already Verified";
-            message.innerHTML =
-                "This device has already been verified.<br>You may now close this tab.";
-    </script>
 </body>
 </html>
